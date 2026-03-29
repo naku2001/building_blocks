@@ -5,7 +5,7 @@
 import os
 import pickle
 
-STOPWORD_FILE = "stopwordset.data" # [cite: 95]
+STOPWORD_FILE = "stopwordset.data" 
 
 def readStopWordsFile(stop_set):
     filename = input("Please enter the name of the new stopwords file: ")
@@ -16,7 +16,7 @@ def readStopWordsFile(stop_set):
         for line in file:
             word = line.strip().lower()
             if word in stop_set:
-                print(f"We already have the word: {word}") # [cite: 102]
+                print(f"We already have the word: {word}") 
             else:
                 stop_set.add(word)
 
@@ -24,26 +24,25 @@ def writeStopWordsFile(stop_set):
     filename = input("Please enter the name of the stopwords file to write to: ")
     with open(filename, 'w') as file:
         for word in sorted(stop_set):
-            file.write(word + "\n") # [cite: 106]
+            file.write(word + "\n") 
 
 def displayStopWords(stop_set):
-    print(f"Currently we have {len(stop_set)} stopwords:") # [cite: 108]
+    print(f"Currently we have {len(stop_set)} stopwords:")
     for word in stop_set:
         print(word)
 
 def storeStopWords(stop_set):
-    with open(STOPWORD_FILE, 'wb') as file: # [cite: 111]
-        pickle.dump(stop_set, file) # [cite: 112]
+    with open(STOPWORD_FILE, 'wb') as file: 
+        pickle.dump(stop_set, file) 
 
 def restoreStopWords():
-    with open(STOPWORD_FILE, 'rb') as file: # [cite: 116]
-        return pickle.load(file) # [cite: 120]
-
+    with open(STOPWORD_FILE, 'rb') as file: 
+        return pickle.load(file) 
 def main():
     if os.path.exists(STOPWORD_FILE):
-        stopwords = restoreStopWords() # [cite: 124]
+        stopwords = restoreStopWords() 
     else:
-        stopwords = set() # [cite: 124]
+        stopwords = set() 
 
     print("Welcome to the stopword repository!")
     choice = ""
@@ -59,7 +58,7 @@ def main():
         elif choice == "3":
             displayStopWords(stopwords)
     
-    storeStopWords(stopwords) # [cite: 128]
+    storeStopWords(stopwords) 
     print("Thank you for using the stopword repository!")
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
-# Author: Perfect Makuwerere
-# Date: March 9, 2026
-# Description: Counts word frequencies while excluding words found in a stopword set.
+#Author: Perfect Makuwerere
+#Date: March 9, 2026
+#Description: Counts word frequencies while excluding words found in a stopword set.
 
 import os
 
@@ -17,7 +17,7 @@ def readStopWordsFile(stop_set):
     
     with open(filename, 'r') as file:
         for line in file:
-            stop_set.add(line.strip().lower()) # [cite: 74]
+            stop_set.add(line.strip().lower())
 
 def readTextFile(word_dict, stop_set):
     """
@@ -34,9 +34,9 @@ def readTextFile(word_dict, stop_set):
         for line in file:
             words = line.strip().lower().split()
             for word in words:
-                if word not in stop_set: # [cite: 79]
+                if word not in stop_set: 
                     word_dict[word] = word_dict.get(word, 0) + 1
-                # [cite: 80] If in set, do nothing
+                
 
 def outputFreq(word_dict):
     print(f"The file contained {len(word_dict)} unique words.")
@@ -44,10 +44,10 @@ def outputFreq(word_dict):
         print(f"{word}:{count}")
 
 def main():
-    stop_words = set() # [cite: 82]
+    stop_words = set()
     word_counts = {}
-    readStopWordsFile(stop_words) # [cite: 84]
-    readTextFile(word_counts, stop_words) # [cite: 85]
+    readStopWordsFile(stop_words) 
+    readTextFile(word_counts, stop_words)
     outputFreq(word_counts)
 
 if __name__ == "__main__":

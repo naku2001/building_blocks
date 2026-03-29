@@ -17,13 +17,13 @@ def readTextFile(word_dict):
     
     with open(filename, 'r') as file:
         for line in file:
-            line = line.strip().lower() # [cite: 48, 49]
+            line = line.strip().lower() 
             words = line.split()
             for word in words:
                 if word in word_dict:
-                    word_dict[word] += 1 # [cite: 51]
+                    word_dict[word] += 1 
                 else:
-                    word_dict[word] = 1 # [cite: 52]
+                    word_dict[word] = 1 
 
 def outputFreq(word_dict):
     """
@@ -31,14 +31,14 @@ def outputFreq(word_dict):
     :param word_dict: Dictionary containing word counts
     :type word_dict: dict
     """
-    print(f"The file contained {len(word_dict)} unique words.") # [cite: 55]
+    print(f"The file contained {len(word_dict)} unique words.") 
     for word, count in word_dict.items():
-        print(f"{word}:{count}") # [cite: 56]
+        print(f"{word}:{count}") 
 
 def main():
-    word_counts = {} # [cite: 57]
-    readTextFile(word_counts) # [cite: 58]
-    outputFreq(word_counts) # [cite: 59]
+    word_counts = {} 
+    readTextFile(word_counts) 
+    outputFreq(word_counts) 
 
 if __name__ == "__main__":
     main()
